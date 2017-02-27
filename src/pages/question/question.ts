@@ -270,23 +270,3 @@ export class QuestionPage {
   }
 
 }
-
-// let questions: Array<any> = [
-//   {
-//     id: 1,
-//     question_id: "L3P36Q1",
-//     question_type: 1,
-//     question_content: "assets/img/P36/L3.3P36.jpg",
-//     choice_1: "ផែ",
-//     choice_1_audio: "L3P36_1.mp3",
-//     choice_2: "ផៃ",
-//     choice_2_audio: "L3P36_2.mp3",
-//     choice_3: "ផេះ",
-//     choice_3_audio: "L3P36_3.mp3",
-//     choice_4: "ថែ",
-//     choice_4_audio: "L3P36_4.mp3",
-//     correct_answer: 3,
-//     next_question: "L3P36Q2",
-//     menu_id: 1,
-//   },
-// ];
