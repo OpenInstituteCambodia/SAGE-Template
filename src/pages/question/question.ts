@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, Input, Renderer } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { xelaRoute } from '../../app/xelaModule/xelaRoute';
@@ -22,6 +22,8 @@ export class QuestionPage {
     image: '/assets/app/image/',
     audio: '/assets/app/audio/'
   }];
+
+  @ViewChild('unit') unit;
 
   private _question_length: number = 0;
   public id;
@@ -55,9 +57,14 @@ export class QuestionPage {
 
   constructor(private _toolbar: xelaToolbar, public navCtrl: NavController, public navParams: NavParams, public _route: xelaRoute, public _audioPlayer: xelaAudio) {
     // this._question(this.navParams.get("_id")-1);
-    this.question_id = "L3P36Q6";
+    this.question_id = this.navParams.get("_id");
     console.log(this.question_id);
-    console.log("Array of Assets", this.assets);
+  }
+
+  ngAfterViewInit() {
+    console.log("UNIT Audio: ", this.unit.nativeElement.attributes);
+    console.log("UNIT Children: ", this.unit.nativeElement.children);
+    console.log(this.unit);
   }
 
   ionViewDidLoad() {
