@@ -18,6 +18,11 @@ import { xelaToolbar } from '../../app/xelaModule/xelaToolbar';
   providers:  [ xelaRoute, xelaAudio, xelaToolbar ]
 })
 export class QuestionPage {
+  public assets:Array<any> = [{
+    image: '/assets/app/image/',
+    audio: '/assets/app/audio/'
+  }];
+
   private _question_length: number = 0;
   public id;
   public question_id;
@@ -50,8 +55,9 @@ export class QuestionPage {
 
   constructor(private _toolbar: xelaToolbar, public navCtrl: NavController, public navParams: NavParams, public _route: xelaRoute, public _audioPlayer: xelaAudio) {
     // this._question(this.navParams.get("_id")-1);
-    this.question_id = "L3P36Q1";
+    this.question_id = "L3P36Q6";
     console.log(this.question_id);
+    console.log("Array of Assets", this.assets);
   }
 
   ionViewDidLoad() {
