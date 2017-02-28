@@ -62,9 +62,26 @@ export class QuestionPage {
   }
 
   ngAfterViewInit() {
-    console.log("UNIT Audio: ", this.unit.nativeElement.attributes);
-    console.log("UNIT Children: ", this.unit.nativeElement.children);
-    console.log(this.unit);
+    console.group("UNIT:");
+      console.log("UNIT Audio: ", this.unit.nativeElement.attributes);
+
+      console.log("UNIT Children: ", this.unit.nativeElement.children);
+
+      console.group('UNIT Choices');
+      for (let i = 0; i < this.unit.nativeElement.children[2].children["0"].children.length; i++) {
+        console.log("Choice "+i,this.unit.nativeElement.children[2].children["0"].children[i].children["0"].attributes);
+      }
+      console.log('UNIT Choices: Length: ', this.unit.nativeElement.children[2].children["0"].children.length);
+      console.groupEnd();
+
+      console.log("Correct Audio", this.unit.nativeElement.children[2].attributes[0]);
+      console.log("Wrong Audio", this.unit.nativeElement.children[2].attributes[1]);
+
+      // .nativeElement.children[2].children["0"].children["0"].children["0"].attributes
+      // .nativeElement.children[2].attributes
+
+      console.log(this.unit);
+    console.groupEnd();
   }
 
   ionViewDidLoad() {
