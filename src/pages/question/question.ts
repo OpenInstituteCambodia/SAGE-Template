@@ -190,6 +190,7 @@ export class QuestionPage {
 
   public question_next(_id) {
     console.log("this._question_length", this._question_length);
+    this._audioPlayer.unload();
     this._route.go(
       QuestionPage, {
         _id: _id
@@ -245,8 +246,6 @@ export class QuestionPage {
     this.isFlex = null;
     console.log("_render(choice) -> Ending", choice);
   }
-
-
 
   public popToRoot() {
     if (this.isEnableAnswer == false ) {
