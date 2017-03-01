@@ -136,11 +136,14 @@ export class QuestionPage {
     this.isEnableAnswer = false;
     this._render(choice);
 
-    let opt = {
-      u_id: 'Media1',
-      path: this.assets[0].audio+this.content['choice_'+choice+'_audio']
-    };
-    this._audioPlayer.play(opt);
+    let opt;
+    if (this.content['choice_'+choice+'_audio'] != '') {
+      opt = {
+        u_id: 'Media1',
+        path: this.assets[0].audio+this.content['choice_'+choice+'_audio']
+      };
+      this._audioPlayer.play(opt);
+    }
 
     if(correct == choice){
       console.log("Answer Is Correct!");
