@@ -104,14 +104,17 @@ export class QuestionPage {
       };
       this._audioPlayer.play(opt);
 
-      setTimeout(() => {
-        opt = {
-          u_id: 'Media2',
-          path: this.assets[0].audio+this.content['audio_2']
-        };
-        this._audioPlayer.play(opt);
-        this.enableAnswerButton();
-      }, 2500);
+      let waiting = setInterval(() => {
+        if(this._audioPlayer.isFinishedPlaying == true) {
+          clearInterval(waiting);
+          opt = {
+            u_id: 'Media2',
+            path: this.assets[0].audio+this.content['audio_2']
+          };
+          this._audioPlayer.play(opt);
+          this.enableAnswerButton();
+        }
+      }, 1000);
     }else{
       opt = {
         u_id: 'Media1',
@@ -153,18 +156,21 @@ export class QuestionPage {
       };
     }
 
-    setTimeout(() => {
-      this._audioPlayer.play(opt);
-    }, 1200);
-    setTimeout(() => {
-      if(correct == choice){
-        this.isNextButton = true;
-      }else{
-        this._render(99);
-        this.isNextButton = false;
-        this.isEnableAnswer = true;
+    let waiting = setInterval(() => {
+      if(this._audioPlayer.isFinishedPlaying == true) {
+        clearInterval(waiting);
+        this._audioPlayer.play(opt);
+        setTimeout(() => {
+          if(correct == choice){
+            this.isNextButton = true;
+          }else{
+            this._render(99);
+            this.isNextButton = false;
+            this.isEnableAnswer = true;
+          }
+        }, 1500);
       }
-    }, 3000);
+    }, 1000);
   }
 
   public question_next(_id) {
