@@ -59,6 +59,7 @@ export class QuestionPage {
     console.group('Initialize UNIT DATA');
     this.UNIT = this.unit.nativeElement;
     console.log("%cDisplaying UNIT: "+this.question_id ,'font-size: 20px;');
+    console.log(this.unit);
 
     this.content = {
       'audio_1': this.UNIT.attributes[0].value,
@@ -68,7 +69,7 @@ export class QuestionPage {
       'choice_1_audio': this.UNIT.children[2].children["0"].children[0].children["0"].attributes[1].value,
       'choice_2_audio': this.UNIT.children[2].children["0"].children[1].children["0"].attributes[1].value,
       'choice_3_audio': this.UNIT.children[2].children["0"].children[2].children["0"].attributes[1].value,
-      'choice_4_audio': this.UNIT.children[2].children["0"].children[0].children["0"].attributes[1].value,
+      'choice_4_audio': this.UNIT.children[2].children["0"].children[3].children["0"].attributes[1].value,
     }
 
     console.log("UNIT Content: ", this.content);
@@ -130,7 +131,7 @@ export class QuestionPage {
 
   public replay() {
     if (this._audioPlayer.isFinishedPlaying == true) {
-      this._audioPlayer.unload();		
+      this._audioPlayer.unload();
     }
     this.playQuestion();
   }
