@@ -49,16 +49,16 @@ export class QuestionPage {
 
   constructor(private _toolbar: xelaToolbar, public navCtrl: NavController, public navParams: NavParams, public _route: xelaRoute, public _audioPlayer: xelaAudio) {
     this.question_id = this.navParams.get("_id");
-    console.log(this.question_id);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QPage');
     console.clear();
-        // Initialize UNIT DATA
+
+    // Initialize UNIT DATA
     console.group('Initialize UNIT DATA');
     this.UNIT = this.unit.nativeElement;
-    console.log(this.UNIT);
+    console.log("%cDisplaying UNIT: "+this.question_id ,'font-size: 20px;');
 
     this.content = {
       'audio_1': this.UNIT.attributes[0].value,
@@ -126,13 +126,6 @@ export class QuestionPage {
 
     console.log('Media1', this.assets[0].audio+this.content['audio_1']);
     console.log('Media2', this.assets[0].audio+this.content['audio_2']);
-  }
-
-  public replay() {
-    if (this._audioPlayer.isFinishedPlaying == true) {
-        this._audioPlayer.unload();
-    }
-    this.playQuestion();
   }
 
   public answer(correct, choice) {
