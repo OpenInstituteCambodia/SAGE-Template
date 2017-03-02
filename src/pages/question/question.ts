@@ -58,9 +58,12 @@ export class QuestionPage {
     // Initialize UNIT DATA
     console.group('Initialize UNIT DATA');
     this.UNIT = this.unit.nativeElement;
-    console.log("%cDisplaying UNIT: "+this.question_id ,'font-size: 20px;');
-    console.log(this.unit);
+    console.log(
+      "%cDisplaying UNIT: ", 'font-size: 20px;',
+      this.question_id
+    );
 
+    console.log(this.unit);
     this.content = {
       'audio_1': this.UNIT.attributes[0].value,
       'audio_2': this.UNIT.attributes[1].value,
