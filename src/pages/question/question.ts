@@ -128,6 +128,14 @@ export class QuestionPage {
     console.log('Media2', this.assets[0].audio+this.content['audio_2']);
   }
 
+  public replay() {
+    if (this._audioPlayer.isFinishedPlaying == true) {
+      this._audioPlayer.unload();		
+    }
+    this.playQuestion();
+  }
+
+
   public answer(correct, choice) {
     if (this.isEnableAnswer == false || this.isNextButton == true) {
       return false;
